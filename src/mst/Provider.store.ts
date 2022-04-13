@@ -26,6 +26,8 @@ export const Root = types
         },
         setLocalStorageTestData() {
             localStorage && localStorage.setItem('Lab5_Data', JSON.stringify(initialState))
+            setTimeout(() => window.location.reload(), 2000);
+            
         }
     }))
     .actions((self) => ({
