@@ -12,7 +12,7 @@ const infoStudent = [
     gender:"male",
     age:21,
     height:200,
-    univerity: "UTM",
+    university: "UTM",
     speciality:"RM",
   },
   {
@@ -21,7 +21,7 @@ const infoStudent = [
     gender:"male",
     age:13,
     height:30,
-    univerity: "Hogwarts",
+    university: "Hogwarts",
     speciality:"Slytherin",
 
   },
@@ -31,7 +31,7 @@ const infoStudent = [
     gender:"male",
     age:22,
     height:180,
-    univerity: "UTM",
+    university: "UTM",
     speciality:"RM",
   }
 ]
