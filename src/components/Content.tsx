@@ -44,7 +44,7 @@ const StudentContent = ({students}: StudentProps) => {
                                     age = {item.age}
                                     gender = {item.gender}
                                     height = {item.height}
-                                    univerity = {item.univerity}  
+                                    university = {item.university}  
                                     speciality = {item.speciality}
                                     >
                                     </StudentItem>
@@ -59,7 +59,7 @@ const StudentContent = ({students}: StudentProps) => {
 }
 
 
-const StudentItem: React.FC<Student> = ({firstName, secondName, age, height, univerity, speciality,gender }: Student)=> {
+const StudentItem: React.FC<Student> = ({firstName, secondName, age, height, university, speciality,gender }: Student)=> {
     return<tr>
    <td>
        <h4>{firstName}</h4>
@@ -77,7 +77,7 @@ const StudentItem: React.FC<Student> = ({firstName, secondName, age, height, uni
        <h4>{height}</h4>
    </td>
    <td>
-       <h4>{univerity}</h4>
+       <h4>{university}</h4>
    </td>
    <td>
        <h4>{speciality}</h4>
