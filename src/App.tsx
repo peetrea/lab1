@@ -10,6 +10,11 @@ function App() {
   React.useEffect(()=>{
     console.log('')
   }, [rootStoreState])
+
+  function refreshPage() {
+    window.location.reload();
+  }
+
   return (
     <div className="App">
         <Layout_content
@@ -21,6 +26,8 @@ function App() {
         <button onClick={rootStore.clearLocalStorage}>Clear LocalStorage</button>
         <br />
         <button onClick={rootStore.setLocalStorageTestData}>Set LocalStorage test data</button>
+        <br />
+        <button onClick={refreshPage}>Click to reload!</button>
     </div>
   );
 }
