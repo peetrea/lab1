@@ -1,49 +1,26 @@
-
 import React from 'react';
 import './App.css';
-import Layout_content from "./components/Layout"
-import {StudenOverview} from "./components/Overview"
+import Layout_content from "./components/Layout";
+import {Overview} from "./components/Overview";
+import rootStore from './mst/Provider.store';
 
-
-const infoStudent = [
-  {
-    firstName: "Petru",
-    secondName:"Cristea",
-    gender:"male",
-    age:21,
-    height:200,
-    university: "UTM",
-    speciality:"RM",
-  },
-  {
-    firstName: "Rusnac",
-    secondName:"Sandu",
-    gender:"male",
-    age:13,
-    height:30,
-    university: "Hogwarts",
-    speciality:"Slytherin",
-
-  },
-  {
-    firstName: "Jimbei",
-    secondName:"Alexandru",
-    gender:"male",
-    age:22,
-    height:180,
-    university: "UTM",
-    speciality:"RM",
-  }
-]
 
 function App() {
+  const [rootStoreState, setRootStoreState] = React.useState(rootStore.getLocalStorage())
+  React.useEffect(()=>{
+    console.log('')
+  }, [rootStoreState])
   return (
     <div className="App">
         <Layout_content
         />
-        <StudenOverview 
-        students = {infoStudent}
+        <Overview students={rootStore.students}
         />
+        <button onClick={rootStore.saveToLocalStorage}>Save to LocalStorage</button>
+        <br />
+        <button onClick={rootStore.clearLocalStorage}>Clear LocalStorage</button>
+        <br />
+        <button onClick={rootStore.setLocalStorageTestData}>Set LocalStorage test data</button>
     </div>
   );
 }

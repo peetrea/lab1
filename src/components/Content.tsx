@@ -38,16 +38,30 @@ const StudentContent = ({students}: StudentProps) => {
                             </tr>
                     
                             {students.map(item => {
+                                // return (
+                                //     <StudentItem key={item.id} firstName = {item.personData.firstName}
+                                //     secondName = {item.personData.secondName}
+                                //     age = {item.personData.age}
+                                //     gender = {item.personData.gender}
+                                //     height = {item.personData.height}
+                                //     university = {item.university}  
+                                //     speciality = {item.speciality}
+                                //     >
+                                //     </StudentItem>
+                                // )
                                 return (
-                                    <StudentItem firstName = {item.firstName}
-                                    secondName = {item.secondName}
-                                    age = {item.age}
-                                    gender = {item.gender}
-                                    height = {item.height}
+                                    <>
+                                    <button key={item.id} onClick={()=>{item.updateField('university', 'ASEM'); console.log(item)}}>set university to ASEM</button>
+                                    <StudentItem key={item.id} firstName = {item.personData.firstName}
+                                    secondName = {item.personData.secondName}
+                                    age = {item.personData.age}
+                                    gender = {item.personData.gender}
+                                    height = {item.personData.height}
                                     university = {item.university}  
                                     speciality = {item.speciality}
                                     >
                                     </StudentItem>
+                                    </>
                                 )
                             })}
                         </tbody>
