@@ -1,11 +1,11 @@
 import React from "react";
 import { Layout } from "antd";
-import {StudentProps} from "./Overview"
+import {MasinaProps} from "./Overview"
+import Masina from "../interface/Interface"
 
-import Student from "../interface/secondInterface"
 const { Content } = Layout;
 
-const StudentContent = ({students}: StudentProps) => {
+const MasinaContent = ({masini}: MasinaProps) => {
 
     return (
         <Content style={{ padding: '0 24px', display:"flex" , minHeight: 280 }}>
@@ -14,53 +14,42 @@ const StudentContent = ({students}: StudentProps) => {
                         <tbody>
                             <tr className="Table-Header">
                                 <td>
-                                    <h4>Numele</h4>
+                                    <h4>Marca</h4>
                                 </td>
                                 <td>
-                                    <h4>Prenumele</h4>
+                                    <h4>Model</h4>
                                 </td>
                                 <td>
-                                    <h4>Varsta</h4>
+                                    <h4>Anul</h4>
                                 </td>
                                 <td>
-                                    <h4>Genul</h4>
+                                    <h4>Caroserie</h4>
                                 </td>
                                 <td>
-                                    <h4>Inaltimea</h4>
+                                    <h4>Tranctiune</h4>
                                 </td>
                                 <td>
-                                    <h4>Univer</h4>
+                                    <h4>Motor</h4>
                                 </td>
                                 <td>
-                                    <h4>Specialitate</h4>
+                                    <h4>Cutie</h4>
                                 </td>
                                 
                             </tr>
                     
-                            {students.map(item => {
-                                // return (
-                                //     <StudentItem key={item.id} firstName = {item.personData.firstName}
-                                //     secondName = {item.personData.secondName}
-                                //     age = {item.personData.age}
-                                //     gender = {item.personData.gender}
-                                //     height = {item.personData.height}
-                                //     university = {item.university}  
-                                //     speciality = {item.speciality}
-                                //     >
-                                //     </StudentItem>
-                                // )
+                            {masini.map(item => {
                                 return (
                                     <>
-                                    <button key={item.id} onClick={()=>{item.updateField('university', 'ASEM'); console.log(item)}}>set university to ASEM</button>
-                                    <StudentItem key={item.id} firstName = {item.personData.firstName}
-                                    secondName = {item.personData.secondName}
-                                    age = {item.personData.age}
-                                    gender = {item.personData.gender}
-                                    height = {item.personData.height}
-                                    university = {item.university}  
-                                    speciality = {item.speciality}
+                                    <MasinaItem key={item.id} marca = {item.transportData.marca}
+                                    model = {item.transportData.model}
+                                    anul = {item.transportData.anul}
+                                    caroserie = {item.transportData.caroserie}
+                                    tractiune = {item.transportData.tractiune}
+                                    motor = {item.motor}
+                                    cutie = {item.cutie}
                                     >
-                                    </StudentItem>
+                                    </MasinaItem>
+                                    <button key={item.id} onClick={()=>{item.updateField('motor', '1.8'); console.log(item); window.location.reload()}}>Shimba motorul</button>
                                     </>
                                 )
                             })}
@@ -73,30 +62,30 @@ const StudentContent = ({students}: StudentProps) => {
 }
 
 
-const StudentItem: React.FC<Student> = ({firstName, secondName, age, height, university, speciality,gender }: Student)=> {
+const MasinaItem: React.FC<Masina> = ({marca, model, anul, caroserie, tractiune, motor, cutie }: Masina)=> {
     return<tr>
    <td>
-       <h4>{firstName}</h4>
+       <h4>{marca}</h4>
    </td>
    <td>
-       <h4>{secondName}</h4>
+       <h4>{model}</h4>
    </td>
    <td>
-       <h4>{age}</h4>
+       <h4>{anul}</h4>
    </td>
    <td>
-       <h4>{gender}</h4>
+       <h4>{caroserie}</h4>
    </td>
    <td>
-       <h4>{height}</h4>
+       <h4>{tractiune}</h4>
    </td>
    <td>
-       <h4>{university}</h4>
+       <h4>{motor}</h4>
    </td>
    <td>
-       <h4>{speciality}</h4>
+       <h4>{cutie}</h4>
    </td>
 </tr>
 }
 
-export default StudentContent;
+export default MasinaContent;
