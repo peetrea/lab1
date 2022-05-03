@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap';
-import Login from '../Login/Login';
-
+import Login from './Login';
 
 function Registration() {
 
@@ -12,11 +11,8 @@ function Registration() {
     const [login, setLogin] = useState(true);
     const [info, setInfo] = useState(true);
 
-
-
-
     // on form submit...
-    function handleFormSubmit(e) {
+    function handleFormSubmit(e: any) {
         e.preventDefault();
 
         if (!name || !password ) {
@@ -24,8 +20,15 @@ function Registration() {
 
         } else {
             setFlag(false);
-            localStorage.setItem("Name: ", JSON.stringify(name));
-            localStorage.setItem("Pass: ", JSON.stringify(password));
+            let lsData = localStorage.getItem("lab6") ? JSON.parse(localStorage.getItem("lab6") || "") : []
+            let userData = Array(...lsData)
+            console.log(typeof userData)
+            userData.push({
+                name: name, 
+                password: password
+            })
+            console.log(userData)
+            localStorage.setItem("lab6", JSON.stringify(userData));
             console.log("Saved in Local Storage");
 
             setLogin(!login)
@@ -40,7 +43,6 @@ function Registration() {
     }
 
 
-
     return (
         <>
 
@@ -52,26 +54,10 @@ function Registration() {
                     <input type="text" className="form-control" placeholder="Create Name" name="name" onChange={(event) => setName(event.target.value)} />
                 </div>
 
-                
-
                 <div className="form-group">
                     <label>Password</label>
                     <input type="password" className="form-control" placeholder="Create pass" onChange={(event) => setPassword(event.target.value)} />
                 </div>
-
-
-
-                {/* <div className="form-group">
-                    <label>Choose your Profession</label>
-                    <Form.Control as="select" onChange={(event) => setProfession(event.target.value)} >
-                        <option>Developer</option>
-                        <option>Artist</option>
-                        <option>Photographer</option>
-                        <option>Team Player</option>
-                        <option>Full Stack</option>
-                    </Form.Control>
-                </div> */}
-
 
                 <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
                 <p className="forgot-password text-right">
@@ -79,7 +65,7 @@ function Registration() {
                 </p>
                 {flag &&
                     <Alert color='primary' variant="danger" >
-                        I got it you are in hurry! But every Field is important!
+                        Insert data
                 </Alert>
                 }
 

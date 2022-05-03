@@ -1,6 +1,7 @@
+import Item from 'antd/lib/list/Item';
 import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap';
-import Home from '../home/Home';
+import Home from './Home';
 
 function Login() {
 
@@ -12,16 +13,18 @@ function Login() {
     const [home, setHome] = useState(true);
 
 
-    function handleLogin(e) {
+
+    function handleLogin(e: any) {
         e.preventDefault();
-        let name = localStorage.getItem('Name: ').replace(/"/g, "");
-        let pass = localStorage.getItem('Pass: ').replace(/"/g, "");
-        // .replace(/"/g,"") is used to remove the double quotes for the string
+        let lsData = localStorage.getItem("lab6") ? JSON.parse(localStorage.getItem("lab6") || "") : []
+        let userData = Array(...lsData)
+        let filteredData = userData.filter(item => namellog === item.name && item.password === passwordlog)
+        console.log(userData)
+        console.log(filteredData)
 
         if (!namellog || !passwordlog) {
             setFlag(true);
-            console.log("EMPTY");
-        } else if ((passwordlog !== pass) || (namellog !== name)) {
+        } else if (filteredData.length==0) {
             setFlag(true);
         } else {
             setHome(!home);
@@ -36,7 +39,7 @@ function Login() {
                 <h3>LogIn</h3>
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="email" className="form-control" placeholder="Enter Name" onChange={(event) => setNamellog(event.target.value)} />
+                    <input type="text" className="form-control" placeholder="Enter Name" onChange={(event) => setNamellog(event.target.value)} />
                 </div>
 
                 <div className="form-group">
@@ -52,7 +55,6 @@ function Login() {
             </form>
                 : <Home />
             }
-
         </div>
     )
 }
