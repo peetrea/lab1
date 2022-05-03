@@ -1,4 +1,3 @@
-import Item from 'antd/lib/list/Item';
 import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap';
 import Home from './Home';
@@ -24,7 +23,7 @@ function Login() {
 
         if (!namellog || !passwordlog) {
             setFlag(true);
-        } else if (filteredData.length==0) {
+        } else if (filteredData.length === 0) {
             setFlag(true);
         } else {
             setHome(!home);

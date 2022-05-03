@@ -1,4 +1,4 @@
-import { getParent, types } from 'mobx-state-tree'
+import { types } from 'mobx-state-tree'
 import type { Instance } from 'mobx-state-tree'
 import {IPerson} from './Person.model'
 import rootStore from './Provider.store'

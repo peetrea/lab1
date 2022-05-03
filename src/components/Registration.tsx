@@ -9,7 +9,7 @@ function Registration() {
 
     const [flag, setFlag] = useState(false);
     const [login, setLogin] = useState(true);
-    const [info, setInfo] = useState(true);
+    const [info] = useState(true);
 
     // on form submit...
     function handleFormSubmit(e: any) {

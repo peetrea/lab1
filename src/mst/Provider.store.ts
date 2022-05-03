@@ -1,6 +1,5 @@
-import { log } from "console";
-import { type Instance, onSnapshot, types } from "mobx-state-tree";
-import { createContext, useContext } from "react";
+
+import { types } from "mobx-state-tree";
 import Person from './Person.model';
 import Student from './Student.model';
 
@@ -35,7 +34,7 @@ export const Root = types
             const isLSData = localStorage && localStorage.getItem('Lab5_Data')
             const lsData = isLSData ? JSON.parse(localStorage.getItem('Lab5_Data') || '') : {}
             if(!self.isFetchedWithLocalStorage){
-                if(lsData && lsData.persons && lsData.persons.length == 0 && lsData.students && lsData.students.length == 0) {
+                if(lsData && lsData.persons && lsData.persons.length === 0 && lsData.students && lsData.students.length === 0) {
                     self.saveToLocalStorage()
                 }
                 else {

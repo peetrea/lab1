@@ -1,4 +1,4 @@
-import Layout_content from "./Layout";
+import LayoutContent from "./Layout";
 import {Overview} from "./Overview";
 import rootStore from '../mst/Provider.store';
 
@@ -7,7 +7,7 @@ function Home() {
         window.location.reload();
       }
     return (
-    <><Layout_content
+    <><LayoutContent
         />
         <Overview students={rootStore.students}
         />

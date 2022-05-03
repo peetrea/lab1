@@ -8,6 +8,7 @@ function App() {
   if (!appRendered)
     if(!localStorage.getItem("lab6")){
       localStorage.setItem("lab6",JSON.stringify(userData))
+      setAppRendered(true)
     }
     
   return (
