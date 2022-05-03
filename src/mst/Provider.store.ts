@@ -1,6 +1,4 @@
-import { log } from "console";
-import { type Instance, onSnapshot, types } from "mobx-state-tree";
-import { createContext, useContext } from "react";
+import { types } from "mobx-state-tree";
 import Person from './Person.model';
 import Student from './Student.model';
 
@@ -35,7 +33,7 @@ export const Root = types
             const isLSData = localStorage && localStorage.getItem('Lab5_Data')
             const lsData = isLSData ? JSON.parse(localStorage.getItem('Lab5_Data') || '') : {}
             if(!self.isFetchedWithLocalStorage){
-                if(lsData && lsData.persons && lsData.persons.length == 0 && lsData.students && lsData.students.length == 0) {
+                if(lsData && lsData.persons && lsData.persons.length === 0 && lsData.students && lsData.students.length === 0) {
                     self.saveToLocalStorage()
                 }
                 else {
@@ -99,28 +97,3 @@ const initialState = {
     ]
 }
 export default rootStore
-//   if (process.browser) {
-    // const data = localStorage.getItem("rootState");
-    // if (data) {
-    //     const json = JSON.parse(data);
-    //     if (Root.create(json)) {
-    //         initialState = Root.create(json);
-    //     }
-    // }
-//   }
-//   onSnapshot(rootStore, (snapshot) => {
-//     console.log("Snapshot: ", snapshot);
-//     localStorage.setItem("rootState", JSON.stringify(snapshot));
-//   });
-
-// export type RootInstance = Instance<typeof Root>;
-// const RootStoreContext = createContext<null | RootInstance>(null);
-// export const Provider = RootStoreContext.Provider;
-// export function useMst() {
-//     const store = useContext(RootStoreContext);
-//     if (store === null) {
-//         throw new Error("Store cannot be null, please add a context provider");
-//     }
-//     console.log(store)
-//     return store;
-// }
