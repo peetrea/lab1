@@ -61,7 +61,7 @@ function Registration() {
 
                 <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="#" onClick={handleClick} >log in?</a>
+                    <a href="#" onClick={handleClick} >LogIn</a>
                 </p>
                 {flag &&
                     <Alert color='primary' variant="danger" >

@@ -3,7 +3,7 @@ import { Layout, Menu} from 'antd';
 
 const { Header } = Layout;
 
-const Layout_content = () =>{
+const LayoutContent = () =>{
     return(
         <Layout>
           <Header className="header">
@@ -23,4 +23,4 @@ const Layout_content = () =>{
         </Layout>
       )
 }
-export default Layout_content;
+export default LayoutContent;
