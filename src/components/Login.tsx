@@ -37,7 +37,7 @@ function Login() {
             {home ? <form onSubmit={handleLogin}>
                 <h3>LogIn</h3>
                 <div className="form-group">
-                    <label>Email</label>
+                    <label>Name</label>
                     <input type="text" className="form-control" placeholder="Enter Name" onChange={(event) => setNamellog(event.target.value)} />
                 </div>
 

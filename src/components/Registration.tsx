@@ -46,7 +46,8 @@ function Registration() {
     return (
         <>
 
-            {info ? <div> {login ? <form onSubmit={handleFormSubmit}>
+            {info ? <div className = "outer">
+                <div className='inner'> {login ? <form onSubmit={handleFormSubmit}>
                 <h3>Register</h3>
 
                 <div className="form-group">
@@ -70,7 +71,7 @@ function Registration() {
                 }
 
             </form> : <Login />}
-            </div> : <div>
+            </div> </div> : <div>
                     
                 </div>}
         </>
